@@ -1,23 +1,23 @@
 public class ZooObserver implements Observer{
-    private String name;
+    private final String name;
     private String desc;
-    private Zoo zoo;
+
+    /**
+     * A builder method for ZooObserver
+     * @param name A string containing the name of the observer.
+     */
     public ZooObserver(String name){
         this.name=name;
-        this.zoo=null;
     }
+
+    /**
+     * A method that updates the desc field of the observer and displays the current update.
+     * @param desc A string that holds the update message.
+     */
     @Override
     public void update(String desc){
         this.desc=desc;
         displayUpdate();
-    }
-    @Override
-    public void subscribe(){
-        this.zoo.addObserver(this);
-    }
-    @Override
-    public void unsubscribe(){
-        this.zoo.removeObserver(this);
     }
     public void displayUpdate(){
         System.out.println("["+name+"] "+desc);
